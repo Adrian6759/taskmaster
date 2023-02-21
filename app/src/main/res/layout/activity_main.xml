@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#233442"
     tools:context=".taskmaster.activities.MainActivity">
 
 
@@ -15,12 +17,14 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="248dp"
         android:text="@string/my_tasks"
+        android:textColor="#A01ED6"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/addTaskIntentButton"
@@ -28,10 +32,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="79dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="#F4F2F4"
         android:text="@string/add_task_button"
+        android:textColor="#8E5DE6"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/allTasksIntentButton"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="NotSibling" />
 
@@ -43,14 +51,17 @@
         android:layout_marginTop="451dp"
         android:layout_marginEnd="54dp"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="#F6F3F3"
         android:text="@string/all_tasks_button"
+        android:textColor="#8E5DE6"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/addTaskIntentButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activityMainSettingsButton"
-        app:layout_constraintVertical_bias="0.722" />
+        app:layout_constraintVertical_bias="0.881" />
 
     <ImageView
         android:id="@+id/activityMainSettingsButton"
@@ -59,14 +70,14 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="624dp"
-        android:background="#47A9D1"
+        android:background="#A01ED6"
         android:contentDescription="@string/clickable_settings_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.627"
         app:srcCompat="@android:drawable/ic_menu_preferences"
         tools:ignore="ImageContrastCheck"
         tools:srcCompat="@android:drawable/ic_menu_manage" />
@@ -81,7 +92,7 @@
         android:hint="@string/usernameEdit"
         android:text="@string/username"
         android:textAllCaps="false"
-        android:textColor="#315277"
+        android:textColor="#E09DEC"
         android:textColorHint="#131010"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -97,18 +108,39 @@
         android:layout_marginBottom="21dp"
         android:shadowColor="#4493C8"
         android:text="@string/welcome"
-        android:textColor="#13667C"
+        android:textColor="#A01ED6"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/activityMainUsernameDisplay" />
+        app:layout_constraintEnd_toStartOf="@+id/activityMainUsernameDisplay"
+        tools:ignore="TextContrastCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activityMainRecycleViewTasks"
-        android:layout_width="360dp"
-        android:layout_height="414dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="116dp"
+        android:layout_width="366dp"
+        android:layout_height="310dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="108dp"
+        android:background="#233442"
+        android:contextClickable="true"
+        android:textColor="#F1EEEE"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="303dp"
+        android:layout_height="204dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="26dp"
+        android:background="#19306A"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toTopOf="@+id/addTaskIntentButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activityMainRecycleViewTasks"
+        tools:src="@color/purple_200"
+        tools:srcCompat="@drawable/dexter" />
 </androidx.constraintlayout.widget.ConstraintLayout>

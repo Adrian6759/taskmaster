@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupRecyclerView();
+        ImageView imageOne = (ImageView) findViewById(R.id.imageView3);
         taskMasterDatabase = Room.databaseBuilder(
                         getApplicationContext(),
                         TaskMasterDatabase.class,
@@ -44,12 +45,11 @@ public class MainActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration() //Don't use this in production
                 .allowMainThreadQueries()
                 .build();
+        int imageResource = getResources().getIdentifier("@drawable/dexter", null, this.getPackageName());
+        imageOne.setImageResource(imageResource);
 
         tasksList = taskMasterDatabase.taskDao().findAll();
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//
-            String userName = preferences.getString(USER_USERNAME_TAG, "no username");
-            ((TextView)findViewById(R.id.activityMainUsernameDisplay)).setText(userName);
+
 
         setupRecyclerView();
         setupButtons();
@@ -61,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
             tasksList.addAll(taskMasterDatabase.taskDao().findAll());
             adapter.notifyDataSetChanged();
 
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 //
+            String userName = preferences.getString(USER_USERNAME_TAG, "no username");
+            ((TextView)findViewById(R.id.activityMainUsernameDisplay)).setText(userName);
 
         }
 
